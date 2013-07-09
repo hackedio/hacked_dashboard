@@ -1,7 +1,16 @@
 namespace :get do
   desc "Use twitter API to grab relevent tweets and add them to database"
   task :tweets => :environment do
-    tweets = Twitter.search("#hackedio", :include_entities => true)
+
+    # get tweet id of the latest tweet we've got and use it in search param
+    # to make sure we are only searching for newer tweets than ones we've got
+    latest_tweet = Tweet.pluck(:tweetid).map { |id| id.to_i }.max
+
+    if latest_tweet.nil?
+      tweets = Twitter.search("#hackedio", :include_entities => true)
+    else
+      tweets = Twitter.search("#hackedio", :include_entities => true, :since_id => latest_tweet)
+    end
 
     tweets.statuses.each do |t|
       unless Tweet.find_by(tweetid: t.id.to_s)
