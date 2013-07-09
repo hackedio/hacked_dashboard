@@ -1,5 +1,17 @@
 #README
 
+__Environment variables needed to use this app:__
+
+* TWITTER_CONSUMER_KEY
+* TWITTER_CONSUMER_SECRET
+* FLICKR_API_KEY
+* FLICKR_API_SECRET
+
+__JSON api__
+
+`/tweets.json` => returns all relevent tweet data.
+`/flickr_photos.json` => returns all relevent flickr data.
+
 __get tweets__
 
 * Simply type the rake command: `rake get:tweets`
