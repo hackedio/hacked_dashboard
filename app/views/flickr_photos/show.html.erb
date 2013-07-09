@@ -7,17 +7,12 @@
 
 <p>
   <strong>Server:</strong>
-  <%= @flickr_photo.server %>
+  <%= @flickr_photo.photo_url %>
 </p>
 
 <p>
   <strong>Photoid:</strong>
-  <%= @flickr_photo.photoid %>
-</p>
-
-<p>
-  <strong>Secret:</strong>
-  <%= @flickr_photo.secret %>
+  <%= @flickr_photo.date_added %>
 </p>
 
 <%= link_to 'Edit', edit_flickr_photo_path(@flickr_photo) %> |

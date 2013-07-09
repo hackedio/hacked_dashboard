@@ -16,16 +16,12 @@
     <%= f.text_field :ownername %>
   </div>
   <div class="field">
-    <%= f.label :server %><br>
-    <%= f.text_field :server %>
+    <%= f.label :photo_url %><br>
+    <%= f.text_field :photo_url %>
   </div>
   <div class="field">
-    <%= f.label :photoid %><br>
-    <%= f.text_field :photoid %>
-  </div>
-  <div class="field">
-    <%= f.label :secret %><br>
-    <%= f.text_field :secret %>
+    <%= f.label :date_added %><br>
+    <%= f.datetime_select :date_added %>
   </div>
   <div class="actions">
     <%= f.submit %>

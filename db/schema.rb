@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130709084252) do
+ActiveRecord::Schema.define(version: 20130709154220) do
+
+  create_table "flickr_photos", force: true do |t|
+    t.string   "ownername"
+    t.string   "photo_url"
+    t.datetime "date_added"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", force: true do |t|
     t.string   "tweetid"

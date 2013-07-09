@@ -5,15 +5,13 @@ describe "flickr_photos/index" do
     assign(:flickr_photos, [
       stub_model(FlickrPhoto,
         :ownername => "Ownername",
-        :server => "Server",
-        :photoid => "Photoid",
-        :secret => "Secret"
+        :photo_url => "PhotoURL",
+        :date_added => "DateAdded"
       ),
       stub_model(FlickrPhoto,
         :ownername => "Ownername",
-        :server => "Server",
-        :photoid => "Photoid",
-        :secret => "Secret"
+        :photo_url => "PhotoURL",
+        :date_added => "DateAdded"
       )
     ])
   end
@@ -22,8 +20,7 @@ describe "flickr_photos/index" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Ownername".to_s, :count => 2
-    assert_select "tr>td", :text => "Server".to_s, :count => 2
-    assert_select "tr>td", :text => "Photoid".to_s, :count => 2
-    assert_select "tr>td", :text => "Secret".to_s, :count => 2
+    assert_select "tr>td", :text => "PhotoURL".to_s, :count => 2
+    assert_select "tr>td", :text => "DateAdded".to_s, :count => 2
   end
 end
