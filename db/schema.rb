@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20130709084252) do
 
   create_table "tweets", force: true do |t|
-    t.integer  "tweetid"
+    t.string   "tweetid"
     t.string   "name"
     t.string   "screen_name"
     t.text     "tweet_text"
