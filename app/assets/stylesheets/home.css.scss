@@ -1,0 +1,106 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*colours*/
+$blue:#2e3192;
+$pink:#ee145b;
+$purple:#a864a9;
+$white:darken(#ffffff,1%);
+
+/*fonts*/
+@font-face {
+    font-family: 'unicod_sansregular';
+    src: url('unicod-webfont.eot');
+    src: url('unicod-webfont.eot?#iefix') format('embedded-opentype'),
+         url('unicod-webfont.woff') format('woff'),
+         url('unicod-webfont.ttf') format('truetype'),
+         url('unicod-webfont.svg#unicod_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'unicod_sansmedium';
+    src: url('unicod_medium-webfont.eot');
+    src: url('unicod_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('unicod_medium-webfont.woff') format('woff'),
+         url('unicod_medium-webfont.ttf') format('truetype'),
+         url('unicod_medium-webfont.svg#unicod_sansmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'unicod_sansbold';
+    src: url('unicod_bold-webfont.eot');
+    src: url('unicod_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('unicod_bold-webfont.woff') format('woff'),
+         url('unicod_bold-webfont.ttf') format('truetype'),
+         url('unicod_bold-webfont.svg#unicod_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+$fontSize:2em;
+
+/*grid*/
+$rightpanel:38%;
+$leftpanel:62%;
+$gutter:2%;
+
+/*clear all the things*/
+body, div, header, span, section, article, blockquote, figure, img, figcaption, p, video, iframe, aside, time, footer, a {margin:0;padding:0;outline:0;border:none;}
+
+body {
+	background-image:
+		-webkit-linear-gradient(left, $white $leftpanel, $blue $rightpanel);
+	;
+	font-family:'unicod_sansregular' sans-serif;
+	font-size:100%;
+	&>div {}
+}
+
+header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-box;}
+
+header, aside, footer {
+	width:$rightpanel;
+	float:right;
+	color:$white;
+}
+header {
+	img {width:50%; height:auto; display:block; margin:0px auto;}
+}
+aside {
+	font-family:'unicod_sansmedium';
+	font-size:$fontSize;
+	div {
+		padding-bottom:$gutter*2;
+	}
+	.countdown {
+		font-size:$fontSize*1.5;
+	}
+	.counter {
+		span {font-size:$fontSize*1.5;}
+	}
+}
+footer {
+	a {color:$purple;}
+}
+
+section[role="main"] {
+	width:$leftpanel;
+	float:left;
+	font-size:$fontSize;
+	text-align:right;
+	article {
+		padding:$gutter;
+	}
+}
+
+
+
+
+
+
