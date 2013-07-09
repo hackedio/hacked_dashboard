@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tweet:</strong>
+  <%= @tweet.tweetid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tweet.name %>
+</p>
+
+<p>
+  <strong>Screen name:</strong>
+  <%= @tweet.screen_name %>
+</p>
+
+<p>
+  <strong>Tweet text:</strong>
+  <%= @tweet.tweet_text %>
+</p>
+
+<p>
+  <strong>Media url:</strong>
+  <%= @tweet.media_url %>
+</p>
+
+<p>
+  <strong>Profile image url:</strong>
+  <%= @tweet.profile_image_url %>
+</p>
+
+<p>
+  <strong>Tweeted at:</strong>
+  <%= @tweet.tweeted_at %>
+</p>
+
+<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
+<%= link_to 'Back', tweets_path %>

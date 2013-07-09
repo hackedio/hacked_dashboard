@@ -1,0 +1,39 @@
+<h1>Listing tweets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tweet</th>
+      <th>Name</th>
+      <th>Screen name</th>
+      <th>Tweet text</th>
+      <th>Media url</th>
+      <th>Profile image url</th>
+      <th>Tweeted at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.tweetid %></td>
+        <td><%= tweet.name %></td>
+        <td><%= tweet.screen_name %></td>
+        <td><%= tweet.tweet_text %></td>
+        <td><%= tweet.media_url %></td>
+        <td><%= tweet.profile_image_url %></td>
+        <td><%= tweet.tweeted_at %></td>
+        <td><%= link_to 'Show', tweet %></td>
+        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tweet', new_tweet_path %>
