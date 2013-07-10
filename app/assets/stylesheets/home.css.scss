@@ -103,10 +103,31 @@ section[role="main"] {
 		padding:$gutter;
 		box-sizing:border-box;
 	}
+	&>section {
+		padding:$gutter;
+		background:$pink;
+		marquee {
+			font-size:$fontSize*1.2;
+			color:white;
+			-webkit-animation:blink 2s infinite;
+		}
+	}
+	
 	article {
 		padding:$gutter;
-
+		-webkit-animation:fadeIn 1s linear;
 	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+@-webkit-keyframes blink {
+	0% {opacity:0;}
+	19% {opacity:0;}
+	20% {opacity:1;}
+	100% {opacity:1;}
 }
 
 
