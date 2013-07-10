@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130710110441) do
+ActiveRecord::Schema.define(version: 20130710130444) do
 
   create_table "flickr_photos", force: true do |t|
     t.string   "ownername"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130710110441) do
     t.datetime "date_added"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photoid"
   end
 
   create_table "new_items", force: true do |t|

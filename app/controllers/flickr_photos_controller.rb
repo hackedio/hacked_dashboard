@@ -69,6 +69,6 @@ class FlickrPhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flickr_photo_params
-      params.require(:flickr_photo).permit(:ownername, :photo_url, :date_added)
+      params.require(:flickr_photo).permit(:photoid, :ownername, :photo_url, :date_added)
     end
 end

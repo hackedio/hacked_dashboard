@@ -21,6 +21,7 @@ end
 
 def add_new_photo(group)
   FlickrPhoto.new do |f|
+    f.photoid = group.id
     f.ownername = group.ownername
     f.photo_url = group.url_z
     f.date_added = Time.at(group.dateadded.to_i)

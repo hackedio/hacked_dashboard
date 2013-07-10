@@ -1,4 +1,7 @@
-json.array!(@flickr_photos) do |flickr_photo|
-  json.extract! flickr_photo, :ownername, :photo_url, :date_added
-  json.url flickr_photo_url(flickr_photo, format: :json)
+@flickr_photos.each do |f|
+  json.set! f.photoid do
+    json.set! :ownername, f.ownername
+    json.set! :photo_url, f.photo_url
+    json.set! :date_added, f.date_added
+  end
 end
