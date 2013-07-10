@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HackedDashboard</title>
+	<!--char set (lang above)-->
+  <meta charset="utf-8">
+  
+  <!--device/browser shizzle-->  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+
+  <!--meta content-->
+  <meta name="author" content="The Lab by O2">
+  <meta name="copyright" content="Built by The Lab, United Kingdom, 2013">
+  <title>Hacked Dashboard</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="wrapper">
+    <header>
+      <img src="assets/hacked-logo.png" />
+    </header>
 
 <%= yield %>
+<%= render "home/aside" %>
 
+		<footer>
+	    <p>&copy; Built by <a href="https://thelab.o2.com/">The Lab</a> @ o2 2013</p>
+	  </footer>
+	</div>
 </body>
 </html>
