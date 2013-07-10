@@ -1,0 +1,31 @@
+<h1>Listing flickr_photos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ownername</th>
+      <th>Photo URL</th>
+      <th>Date Added</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flickr_photos.each do |flickr_photo| %>
+      <tr>
+        <td><%= flickr_photo.ownername %></td>
+        <td><%= flickr_photo.photo_url %></td>
+        <td><%= flickr_photo.date_added %></td>
+        <td><%= link_to 'Show', flickr_photo %></td>
+        <td><%= link_to 'Edit', edit_flickr_photo_path(flickr_photo) %></td>
+        <td><%= link_to 'Destroy', flickr_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flickr photo', new_flickr_photo_path %>

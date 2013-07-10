@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ownername:</strong>
+  <%= @flickr_photo.ownername %>
+</p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @flickr_photo.photo_url %>
+</p>
+
+<p>
+  <strong>Photoid:</strong>
+  <%= @flickr_photo.date_added %>
+</p>
+
+<%= link_to 'Edit', edit_flickr_photo_path(@flickr_photo) %> |
+<%= link_to 'Back', flickr_photos_path %>
