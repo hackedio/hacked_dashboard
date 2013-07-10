@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130709154220) do
+ActiveRecord::Schema.define(version: 20130710110441) do
 
   create_table "flickr_photos", force: true do |t|
     t.string   "ownername"
     t.string   "photo_url"
     t.datetime "date_added"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "new_items", force: true do |t|
+    t.string   "itemtype"
+    t.string   "itemid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
