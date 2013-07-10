@@ -71,7 +71,7 @@ function getLatestItem(){
 
 function loopFindNewItems(){
   setInterval(function(){
-    console.log('checking for new items');
+    console.log('checking for new items ' + new Date());
     var url = "/new_items.json";
     $.ajax({
       type: "GET",
