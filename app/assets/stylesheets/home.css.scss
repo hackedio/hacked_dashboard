@@ -43,11 +43,11 @@ $white:darken(#ffffff,1%);
     font-style: normal;
 
 }
-$fontSize:2em;
+$fontSize:1.4em;
 
 /*grid*/
-$rightpanel:38%;
-$leftpanel:62%;
+$rightpanel:33%;
+$leftpanel:66%;
 $gutter:2%;
 
 /*clear all the things*/
@@ -59,14 +59,15 @@ body {
 	;
 	font-family:'unicod_sansregular' sans-serif;
 	font-size:100%;
-	&>div {}
+	&>div {position:relative; overflow:hidden;}
 }
 
 header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-box;}
 
 header, aside, footer {
 	width:$rightpanel;
-	float:right;
+	float:left;
+	margin-left:$leftpanel;
 	color:$white;
 }
 header {
@@ -90,12 +91,21 @@ footer {
 }
 
 section[role="main"] {
+	overflow:hidden;
+	position:fixed;
+	bottom:0px;
 	width:$leftpanel;
 	float:left;
 	font-size:$fontSize;
 	text-align:right;
+	&>div {
+		width:50%; float:left;
+		padding:$gutter;
+		box-sizing:border-box;
+	}
 	article {
 		padding:$gutter;
+
 	}
 }
 
