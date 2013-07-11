@@ -13,6 +13,7 @@ gem 'rack-timeout'
 gem 'twitter'
 # Flickr gem
 gem 'flickraw'
+gem 'unicorn'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
