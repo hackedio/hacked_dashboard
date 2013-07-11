@@ -1,6 +1,10 @@
 HackedDashboard::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Unicorn logging set up
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
+
   #FONTS
   # Add the fonts path
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
