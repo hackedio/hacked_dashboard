@@ -55,8 +55,8 @@ function appendTweet(tweet){
     ' <article class="text tweet"> \
         '+tweetTimeElement(tweet['tweeted_at'])+' \
         <img src=\"'+tweet['profile_image_url']+'\" /> \
-        <h5><b>'+tweet['name']+'</b> @'+tweet['screen_name']+'</h5> \
-        <blockquote>'+tweet['tweet_text']+'</blockquote> \
+        <div><h5><b>'+tweet['name']+'</b> @'+tweet['screen_name']+'</h5> \
+        <blockquote>'+tweet['tweet_text']+'</blockquote></div> \
       </article> '
   );
   console.log('tweet appended');

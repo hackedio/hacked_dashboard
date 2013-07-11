@@ -105,7 +105,6 @@ footer {
 }
 
 section[role="main"] {
-	overflow:hidden;
 	position:fixed;
 	bottom:0px;
 	width:$leftpanel;
@@ -123,9 +122,12 @@ section[role="main"] {
 	}
 	/*columns*/
 	&>div {
-		width:50%; float:left;
+		width:50%;
+		position:absolute; bottom:0px;
 		padding:$gutter;
 		box-sizing:border-box;
+		&:nth-child(2n) {left:0px;}
+		&:nth-child(2n+1) {right:0px;}
 		article {
 			overflow:hidden;
 			padding:$gutter;
