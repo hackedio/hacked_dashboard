@@ -3,6 +3,7 @@
 
 $(function(){
   getAllTweets();
+  keepUpdatingTweetTimes();
 });
 
 var current_latest_item;
@@ -18,6 +19,29 @@ function getAllTweets(){
       getLatestItem();
     }
   });
+}
+
+function keepUpdatingTweetTimes(){
+  setInterval(function(){
+    console.log('updating tweet times');
+    var times = $('.tweeted_at');
+    $.each(times, function(index, time){
+      var tweetedat = $(time).data('tweetedat');
+      updateTweetTime(time, tweetedat);
+    });
+  },30000);
+}
+
+function updateTweetTime(time, tweetedat){
+  var howLongAgo = new Date(tweetedHowLongAgo(tweetedat));
+  var hours = howLongAgo.getHours();
+  var minutes = howLongAgo.getMinutes();
+
+  if(hours == 0){
+    $(time).html(minutes+'m');
+  }else{
+    $(time).html(hours+'h '+minutes+'m');
+  };
 }
 
 function processTweets(tweets){
@@ -50,9 +74,9 @@ function tweetTimeElement(tweeted_at){
   var hours = howLongAgo.getHours();
   var minutes = howLongAgo.getMinutes();
   if(hours == 0){
-    return '<time>'+minutes+'m'+'</time>';
+    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+minutes+'m'+'</time>';
   }else{
-    return '<time>'+hours+'h '+minutes+'m'+'</time>';
+    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+hours+'h '+minutes+'m'+'</time>';
   };
 }
 
