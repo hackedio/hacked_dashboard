@@ -49,7 +49,7 @@ function getLatestItem(){
 
 function loopFindNewItems(){
   setInterval(function(){
-    // console.log('checking for new items ' + new Date());
+    console.log('checking for new items ' + new Date());
     var url = "/new_items.json";
     $.ajax({
       type: "GET",
@@ -59,10 +59,10 @@ function loopFindNewItems(){
         var new_item = items[current_latest_item+1];
         if (new_item){
           current_latest_item = current_latest_item+1;
-          // console.log('new item found!!!');
+          console.log('new item found!!!');
           updatePage(new_item);
         }else{
-          // console.log('no new items found');
+          console.log('no new items found');
         };
       }
     });
@@ -71,7 +71,7 @@ function loopFindNewItems(){
 
 function keepUpdatingTweetTimes(){
   setInterval(function(){
-    // console.log('updating tweet times');
+    console.log('updating tweet times');
     var times = $('.tweeted_at');
     $.each(times, function(index, time){
       var tweetedat = $(time).data('tweetedat');
@@ -86,9 +86,9 @@ function updateTweetTime(time, tweetedat){
   var minutes = howLongAgo.getMinutes();
 
   if(hours == 0){
-    $(time).html(minutes+'m');
+    $(time).html(minutes+'m ago');
   }else{
-    $(time).html(hours+'h '+minutes+'m');
+    $(time).html(hours+'h '+minutes+'m ago');
   };
 }
 
@@ -107,7 +107,7 @@ function appendTweet(tweet){
         <blockquote>'+tweet['tweet_text']+'</blockquote></div> \
       </article> '
   );
-  // console.log('tweet appended');
+  console.log('tweet appended');
 }
 
 function processFlickr(photos){
@@ -139,37 +139,54 @@ function tweetTimeElement(tweeted_at){
   var hours = howLongAgo.getHours();
   var minutes = howLongAgo.getMinutes();
   if(hours == 0){
-    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+minutes+'m'+'</time>';
+    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+minutes+'m'+' ago</time>';
   }else{
-    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+hours+'h '+minutes+'m'+'</time>';
+    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+hours+'h '+minutes+'m'+' ago</time>';
   };
 }
 
 function updatePage(item){
-  // console.log('gone into updatePage function');
+  console.log('gone into updatePage function');
   if(item['itemtype'] == 'tweet'){
-    // console.log('tweet found');
-    // console.log('adding new tweet to page');
+    console.log('tweet found');
+    console.log('adding new tweet to page');
     addNewTweetToPage(item['itemid']);
   }else if(item['itemtype'] == 'flickr'){
-    // console.log('item type flickr found');
-    // console.log('adding new flickr photo to page');
+    console.log('item type flickr found');
+    console.log('adding new flickr photo to page');
     addNewPhotoToPage(item['itemid']);
   };
 }
 
 function addNewTweetToPage(tweetid){
-  // console.log('Gone into addNewTweetToPage function');
+  console.log('Gone into addNewTweetToPage function');
   var url = "/tweets.json";
   $.ajax({
     type: "GET",
     dataType: "json",
     url: url,
     success: function(tweets){
-      // console.log('checking if tweets[tweetid] exists');
+      console.log('checking if tweet '+tweets[tweetid]+' exists');
       if(tweets[tweetid]){
-        // console.log('yep it exists! Appending to page!');
+        console.log('yep it exists! Appending to page!');
         appendTweet(tweets[tweetid]);
+      }
+    }
+  });
+}
+
+function addNewPhotoToPage(photoid){
+  console.log('Gone into addNewPhotoToPage function');
+  var url = "/flickr_photos.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(photos){
+      console.log('checking if '+photos[photoid]+' exists');
+      if(photos[photoid]){
+        console.log('yep it exists! Appending to page!');
+        appendPhoto(photos[photoid]);
       }
     }
   });
