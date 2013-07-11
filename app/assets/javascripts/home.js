@@ -3,6 +3,7 @@
 
 $(function(){
   getAllTweets();
+  getAllFlickrPhotos();
   keepUpdatingTweetTimes();
 });
 
@@ -21,9 +22,56 @@ function getAllTweets(){
   });
 }
 
+function getAllFlickrPhotos(){
+  var url = "/flickr_photos.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(photos){
+      processFlickr(photos);
+    }
+  });
+}
+
+function getLatestItem(){
+  var url = "/new_items.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(items){
+      current_latest_item = items['info']['latest_item'];
+      loopFindNewItems();
+    }
+  });
+}
+
+function loopFindNewItems(){
+  setInterval(function(){
+    // console.log('checking for new items ' + new Date());
+    var url = "/new_items.json";
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: url,
+      success: function(items){
+        var new_item = items[current_latest_item+1];
+        if (new_item){
+          current_latest_item = current_latest_item+1;
+          // console.log('new item found!!!');
+          updatePage(new_item);
+        }else{
+          // console.log('no new items found');
+        };
+      }
+    });
+  },5000);
+}
+
 function keepUpdatingTweetTimes(){
   setInterval(function(){
-    console.log('updating tweet times');
+    // console.log('updating tweet times');
     var times = $('.tweeted_at');
     $.each(times, function(index, time){
       var tweetedat = $(time).data('tweetedat');
@@ -59,7 +107,24 @@ function appendTweet(tweet){
         <blockquote>'+tweet['tweet_text']+'</blockquote> \
       </article> '
   );
-  console.log('tweet appended');
+  // console.log('tweet appended');
+}
+
+function processFlickr(photos){
+  $.each(photos, function(index, photo){
+    appendPhoto(photo);
+  });
+}
+
+function appendPhoto(photo){
+  $('#flickr').append(
+    ' <article class="picture flickr"> \
+        <figure> \
+          <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo" style="width:100%;height:100%;"> \
+          <figcaption style="font-size:10pt;">Uploaded by '+photo['ownername']+'</figcaption> \
+        </figure> \
+      </article> '
+  );
 }
 
 function tweetedHowLongAgo(tweeted_at){
@@ -80,65 +145,30 @@ function tweetTimeElement(tweeted_at){
   };
 }
 
-function getLatestItem(){
-  var url = "/new_items.json";
-  $.ajax({
-    type: "GET",
-    dataType: "json",
-    url: url,
-    success: function(items){
-      current_latest_item = items['info']['latest_item'];
-      loopFindNewItems();
-    }
-  });
-}
-
-function loopFindNewItems(){
-  setInterval(function(){
-    console.log('checking for new items ' + new Date());
-    var url = "/new_items.json";
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: url,
-      success: function(items){
-        var new_item = items[current_latest_item+1];
-        if (new_item){
-          current_latest_item = current_latest_item+1;
-          console.log('new item found!!!');
-          updatePage(new_item);
-        }else{
-          console.log('no new items found');
-        };
-      }
-    });
-  },5000);
-}
-
 function updatePage(item){
-  console.log('gone into updatePage function');
+  // console.log('gone into updatePage function');
   if(item['itemtype'] == 'tweet'){
-    console.log('tweet found');
-    console.log('adding new tweet to page');
+    // console.log('tweet found');
+    // console.log('adding new tweet to page');
     addNewTweetToPage(item['itemid']);
   }else if(item['itemtype'] == 'flickr'){
-    console.log('item type flickr found');
-    console.log('adding new flickr photo to page');
+    // console.log('item type flickr found');
+    // console.log('adding new flickr photo to page');
     addNewPhotoToPage(item['itemid']);
   };
 }
 
 function addNewTweetToPage(tweetid){
-  console.log('Gone into addNewTweetToPage function');
+  // console.log('Gone into addNewTweetToPage function');
   var url = "/tweets.json";
   $.ajax({
     type: "GET",
     dataType: "json",
     url: url,
     success: function(tweets){
-      console.log('checking if tweets[tweetid] exists');
+      // console.log('checking if tweets[tweetid] exists');
       if(tweets[tweetid]){
-        console.log('yep it exists! Appending to page!');
+        // console.log('yep it exists! Appending to page!');
         appendTweet(tweets[tweetid]);
       }
     }
