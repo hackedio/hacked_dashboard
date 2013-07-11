@@ -9,11 +9,9 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'rack-timeout'
 gem 'twitter'
 # Flickr gem
 gem 'flickraw'
-gem 'unicorn'
 gem 'foreman'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
