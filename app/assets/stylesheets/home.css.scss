@@ -46,7 +46,7 @@ $bigFont:$fontSize*1.6;
 /*grid*/
 $rightpanel:33%;
 $leftpanel:66%;
-$gutter:2%;
+$gutter:20px;
 
 
 /*animations*/
@@ -61,11 +61,11 @@ $gutter:2%;
 	100% {opacity:1;}
 }
 
-$twitterImgSize:73px;
+$twitterImgSize:80px;
 
 //CSS STARTS HERE--------------------------------------------------
 /*clear all the things*/
-html,body, div, header, span, section, article, blockquote, figure, img, figcaption, p, video, iframe, aside, time, footer, a {margin:0;padding:0;outline:0;border:none;font-size:100%;}
+html,body, div, header, span, section, article, blockquote, figure, img, figcaption, h5, p, video, iframe, aside, time, footer, a {margin:0;padding:0;outline:0;border:none;font-size:100%;}
 
 body {
 	background-image:
@@ -75,6 +75,8 @@ body {
 	color:$black;
 	&>div {position:relative; overflow:hidden;}
 }
+
+b {font-family:'unicod_sansmedium';}
 
 header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-box;}
 
@@ -135,9 +137,27 @@ section[role="main"] {
 			font-size:$fontSize;
 		}
 		.tweet {
+			background-image:
+				-webkit-linear-gradient(top, hsla(280,100%,100%,1) 1px, transparent 1px, transparent 2px, hsla(280,100%,100%,1) 2px),
+				-webkit-linear-gradient(left, hsla(230,100%,100%,0), hsla(280,100%,50%,0.5), hsla(230,100%,100%,0))
+			;
 			time {float:left; font-size:$smallFont; color:$purple;}
-			img, h5, blockquote {float:right; display:block;}
-			h5, blockquote {font-size:$fontSize; margin-right:$twitterImgSize+20px;}
+			img {
+				float:right; display:block;
+				width:$twitterImgSize; height:auto;
+				border:1px solid $black;
+				box-shadow:
+					0px 0px 1px 0px $black,
+					0px 0px 0px 3px $white,
+					0px 0px 0px 5px transparentize($purple,0.5)
+				;
+			}
+			div {margin-right:$twitterImgSize+$gutter;}
+			h5, blockquote {font-size:$fontSize;}
+			h5 {
+				color:$purple;
+				b {color:$black;}
+			}
 		}
 	}
 }
