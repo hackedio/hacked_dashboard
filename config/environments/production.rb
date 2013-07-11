@@ -1,12 +1,16 @@
 HackedDashboard::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  
+  config.assets.initialize_on_precompile = false
+  
   #FONTS
   # Add the fonts path
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
   # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.precompile += %w( *.svg *.eot *.woff *.ttf )
+  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+
 
   # Code is not reloaded between requests.
   config.cache_classes = true
