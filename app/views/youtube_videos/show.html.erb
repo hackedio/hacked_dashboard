@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Videoid:</strong>
+  <%= @youtube_video.videoid %>
+</p>
+
+<p>
+  <strong>Videourl:</strong>
+  <%= @youtube_video.videourl %>
+</p>
+
+<p>
+  <strong>Authorname:</strong>
+  <%= @youtube_video.authorname %>
+</p>
+
+<p>
+  <strong>Dateuploaded:</strong>
+  <%= @youtube_video.dateuploaded %>
+</p>
+
+<%= link_to 'Edit', edit_youtube_video_path(@youtube_video) %> |
+<%= link_to 'Back', youtube_videos_path %>

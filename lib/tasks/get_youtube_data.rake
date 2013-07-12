@@ -22,7 +22,7 @@ end
 def add_new_video(video)
   YoutubeVideo.new do |v|
     v.videoid = video.unique_id
-    v.videourl = "http://www.youtube.com/embed/#{video.unique_id}?autoplay=1&loop=1&playlist=#{video.unique_id}"
+    v.videourl = "http://www.youtube.com/embed/#{video.unique_id}\?autoplay=1\&loop=1\&playlist=#{video.unique_id}\&showinfo=0\&controls=0"
     v.authorname = video.author.name
     v.dateuploaded = video.uploaded_at
   end
@@ -32,7 +32,7 @@ def find_new_videos_and_add_them_to_db
   videos = YOUTUBE.videos_by(:tags => [:hackedio]).videos
 
   videos.each do |video|
-    unless YoutubeVideo.find_by(video_id: video.unique_id)
+    unless YoutubeVideo.find_by(videoid: video.unique_id)
       new_video = add_new_video(video)
       if new_video.save
         puts "Video from user: #{video.author.name} saved"
