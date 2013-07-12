@@ -12,6 +12,8 @@ gem 'turbolinks'
 gem 'twitter'
 # Flickr gem
 gem 'flickraw'
+# Youtube gem
+gem 'youtube_it'
 gem 'foreman'
 
 # Rails 4 requires this gem in order to configure your application logs
