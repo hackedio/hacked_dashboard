@@ -1,0 +1,1 @@
+YOUTUBE = YouTubeIt::Client.new(:dev_key => ENV['YOUTUBE_DEVELOPER_KEY'])

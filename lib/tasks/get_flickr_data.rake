@@ -1,5 +1,5 @@
 namespace :get do
-  desc "Use twitter API to grab relevent tweets and add them to database"
+  desc "Use flickr API to grab relevent photos from a specific group and add them to database"
   task :flickr => :environment do
 
     begin
