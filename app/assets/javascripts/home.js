@@ -5,6 +5,7 @@ $(function(){
   getAllTweets();
   getAllFlickrPhotos();
   keepUpdatingTweetTimes();
+  setCountdownTimer();
 });
 
 var current_latest_item;
@@ -267,4 +268,21 @@ function addNewVideoToPage(videoid){
       }
     }
   });
+}
+
+function setCountdownTimer(){
+  var hackedIsOver = new Date("2013-07-21 12:00:00");
+  $('.countdown time').countdown({until: hackedIsOver, onTick: formatCountdownTime});
+}
+
+function formatCountdownTime(periods) {
+  var days = doubleDigit(periods[3]);
+  var hours = doubleDigit(periods[4]);
+  var minutes = doubleDigit(periods[5]);
+  var seconds = doubleDigit(periods[6]);
+  $('.countdown time').text(days + ':' + hours + ':' + minutes + ':' + seconds);
+}
+
+function doubleDigit(n) {
+  return (n < 10) ? ("0" + n) : n;
 }
