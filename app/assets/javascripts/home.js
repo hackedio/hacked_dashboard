@@ -6,9 +6,33 @@ $(function(){
   getAllFlickrPhotos();
   keepUpdatingTweetTimes();
   setCountdownTimer();
+  getStats();
 });
 
 var current_latest_item;
+
+function getStats(){
+  setInterval(function(){
+    var url = "/stats.json";
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: url,
+      success: function(stats){
+        displayStats(stats);
+      }
+    });
+  }, 5000);
+}
+
+function displayStats(stats){
+  $('.stats').html("")
+  $.each(stats, function(index,stat){
+    if(stat['display']==true){
+      $('.stats').append('<p><span>'+stat['value']+'</span> '+stat['name']+'</p>');
+    };
+  });
+}
 
 function getAllTweets(){
   var url = "/tweets.json";
