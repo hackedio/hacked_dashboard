@@ -1,0 +1,2 @@
+module UpdateStatsHelper
+end
