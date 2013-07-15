@@ -7,22 +7,40 @@ $(function(){
   keepUpdatingTweetTimes();
   setCountdownTimer();
   getStats();
+  displayNotification();
 });
 
 var current_latest_item;
 
+function displayNotification(){
+  var url = "/notifications.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(notifications){
+      var latest = notifications['info']['latest_notification'];
+      $(".temporary_notification_div").html('<p>'+notifications[latest]['text']+'</p>');
+      setTimeout(function(){
+        displayNotification();
+      },5000);
+    }
+  });
+}
+
 function getStats(){
-  setInterval(function(){
-    var url = "/stats.json";
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: url,
-      success: function(stats){
-        displayStats(stats);
-      }
-    });
-  }, 5000);
+  var url = "/stats.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(stats){
+      displayStats(stats);
+      setTimeout(function(){
+        getStats();
+      }, 5000);
+    }
+  });
 }
 
 function displayStats(stats){

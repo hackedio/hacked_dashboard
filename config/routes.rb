@@ -1,4 +1,6 @@
 HackedDashboard::Application.routes.draw do
+  resources :notifications
+
   resources :stats
 
   resources :youtube_videos
