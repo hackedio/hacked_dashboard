@@ -41,11 +41,11 @@ $black:darken($blue,20%);
 }
 $fontSize:1em;
 $smallFont:$fontSize*0.8;
-$bigFont:$fontSize*1.6;
+$bigFont:$fontSize*3;
 
 /*grid*/
-$rightpanel:33%;
-$leftpanel:66%;
+$rightpanel:24%;
+$leftpanel:76%;
 $gutter:20px;
 $screenHeight:1024px;
 
@@ -70,7 +70,7 @@ html,body, div, header, span, section, article, blockquote, figure, img, figcapt
 
 body {
 	background-image:
-		-webkit-linear-gradient(left, $white $leftpanel, $blue $rightpanel);
+		-webkit-linear-gradient(left, $white 68%, $blue 68%);
 	;
 	font-family:'unicod_sansregular' sans-serif;
 	color:$black; line-height:1.4;
@@ -85,7 +85,7 @@ header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-
 header, aside, footer {width:$rightpanel; color:$white;}
 //positioning
 aside, footer {position:absolute; right:0px;}
-aside {top:300px;}
+aside {top:280px;}
 footer {bottom:0px;}
 
 //styling
@@ -95,15 +95,21 @@ header {
 }
 aside {
 	font-family:'unicod_sansmedium';
-	font-size:$fontSize;
 	div {
 		padding-bottom:$gutter*2;
 	}
-	.countdown {
-		font-size:$fontSize*1.5;
+	.countdown time {
+		display:block;
+		font-size:$bigFont*1.2; text-align:center;
 	}
-	.counter {
-		span {font-size:$fontSize*1.5;}
+	.stats {
+		p {
+			margin-bottom:$gutter;
+			font-size:$fontSize;
+			span {
+				font-size:$bigFont;
+			}
+		}
 	}
 }
 footer {
@@ -181,7 +187,7 @@ section[role="main"] {
 	overflow:hidden;
 	height:$screenHeight;
 	background-image:
-		-webkit-linear-gradient(left, transparent 5px, hsla(280,100%,100%,1) 6px),
+		-webkit-linear-gradient(left, transparent 3px, hsla(280,100%,100%,1) 4px),
 		-webkit-linear-gradient(top, hsla(230,100%,100%,0), hsla(230,100%,50%,0.5), hsla(230,100%,100%,0))
 	;
 	article {
@@ -196,13 +202,13 @@ section[role="main"] {
 			box-shadow:
 				0px 0px 1px 0px $black,
 				0px 0px 0px 3px $white,
-				0px 0px 0px 5px transparentize($pink,0.5)
+				0px 0px 0px 5px transparentize($blue,0.5)
 			;
 		}
 		figcaption, p {
 			padding-top:$gutter/2;
 			font-size:$smallFont;
-			span {color:$pink;}
+			span {color:$blue;}
 		}
 	}
 }
