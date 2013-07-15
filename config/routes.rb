@@ -12,5 +12,6 @@ HackedDashboard::Application.routes.draw do
   resources :tweets
   root :to => "home#index"
   resources :update_stats, :only => [:index]
+  resources :submit_youtube_link, :only => [:index, :create]
 end
 
