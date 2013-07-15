@@ -72,7 +72,7 @@ body {
 		-webkit-linear-gradient(left, $white $leftpanel, $blue $rightpanel);
 	;
 	font-family:'unicod_sansregular' sans-serif;
-	color:$black;
+	color:$black; line-height:1.4;
 	&>div {position:relative; overflow:hidden;}
 }
 
@@ -114,6 +114,7 @@ section[role="main"] {
 	text-align:right;
 	/*notification*/
 	&>section {
+		display:none;
 		padding:$gutter;
 		background:$pink;
 		marquee {
@@ -141,7 +142,11 @@ section[role="main"] {
 				-webkit-linear-gradient(top, hsla(280,100%,100%,1) 1px, transparent 1px, transparent 2px, hsla(280,100%,100%,1) 2px),
 				-webkit-linear-gradient(left, hsla(230,100%,100%,0), hsla(280,100%,50%,0.5), hsla(230,100%,100%,0))
 			;
-			time {float:left; font-size:$smallFont; color:$purple;}
+			time {
+				float:left;
+				font-size:$smallFont; /*font-family:'helvetica' sans-serif;*/
+				color:$purple;
+			}
 			img {
 				float:right; display:block;
 				width:$twitterImgSize; height:auto;
@@ -155,9 +160,14 @@ section[role="main"] {
 			div {margin-right:$twitterImgSize+$gutter;}
 			h5, blockquote {font-size:$fontSize;}
 			h5 {
+				margin:-4px 0px 4px;
 				color:$purple;
 				b {color:$black;}
 			}
+			blockquote {font-family:'helvetica' sans-serif;}
+		}
+		.flickr {
+			img {width:400px; height:auto;}
 		}
 	}
 }
