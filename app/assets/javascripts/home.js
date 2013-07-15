@@ -5,6 +5,7 @@ $(function(){
   getAllTweets();
   getAllFlickrPhotos();
   keepUpdatingTweetTimes();
+  setCountdownTimer();
 });
 
 var current_latest_item;
@@ -23,14 +24,59 @@ function getAllTweets(){
 }
 
 function getAllFlickrPhotos(){
+  console.log('getting all flickr photos');
   var url = "/flickr_photos.json";
   $.ajax({
     type: "GET",
     dataType: "json",
     url: url,
     success: function(photos){
-      processFlickr(photos);
+      // processFlickr(photos);
+      getAllYoutubeVids(photos);
     }
+  });
+}
+
+function getAllYoutubeVids(photos){
+  console.log('getting all youtube videos');
+  var url = "/youtube_videos.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(videos){
+      orderVideosAndPhotos(videos, photos);
+    }
+  });
+}
+
+function orderVideosAndPhotos(videos, photos){
+  console.log('getting all new items');
+  var url = "/new_items.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(items){
+      processVideosAndPhotos(items,videos,photos);
+    }
+  });
+}
+
+function processVideosAndPhotos(items,videos,photos){
+  console.log('processing videos and photos');
+  $.each(items, function(index, item){
+    if (item['itemtype'] == 'flickr'){
+      console.log('item type is flickr');
+      if(photos[item['itemid']]){
+        appendPhoto(photos[item['itemid']])
+      };
+    }else if (item['itemtype'] == 'youtube'){
+      console.log('item type is youtube');
+      if(videos[item['itemid']]){
+        appendVideo(videos[item['itemid']])
+      };
+    };
   });
 }
 
@@ -110,19 +156,30 @@ function appendTweet(tweet){
   console.log('tweet appended');
 }
 
-function processFlickr(photos){
-  $.each(photos, function(index, photo){
-    appendPhoto(photo);
-  });
-}
+// function processFlickr(photos){
+//   $.each(photos, function(index, photo){
+//     appendPhoto(photo);
+//   });
+// }
 
 function appendPhoto(photo){
-  $('#flickr').append(
+  console.log('appending flickr photo');
+  $('#flickr_youtube').append(
     ' <article class="picture flickr"> \
         <figure> \
           <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo" style="width:100%;height:100%;"> \
           <figcaption style="font-size:10pt;">Uploaded by '+photo['ownername']+'</figcaption> \
         </figure> \
+      </article> '
+  );
+}
+
+function appendVideo(video){
+  console.log('appending youtube video');
+  $('#flickr_youtube').append(
+    ' <article class="video youtube"> \
+        <iframe width="100%" src="'+video['videourl'].replace("\u0026","&")+'"></iframe> \
+        <p style="font-size:10pt;">Uploaded by '+video['authorname']+'</p> \
       </article> '
   );
 }
@@ -155,6 +212,10 @@ function updatePage(item){
     console.log('item type flickr found');
     console.log('adding new flickr photo to page');
     addNewPhotoToPage(item['itemid']);
+  }else if(item['itemtype'] == 'youtube'){
+    console.log('item type youtube found');
+    console.log('adding new youtube video to page');
+    addNewVideoToPage(item['itemid']);
   };
 }
 
@@ -190,4 +251,38 @@ function addNewPhotoToPage(photoid){
       }
     }
   });
+}
+
+function addNewVideoToPage(videoid){
+  console.log('Gone into addNewVideoToPage function');
+  var url = "/youtube_videos.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(videos){
+      console.log('checking if '+videos[videoid]+' exists');
+      if(videos[videoid]){
+        console.log('yep it exists! Appending to page!');
+        appendVideo(videos[videoid]);
+      }
+    }
+  });
+}
+
+function setCountdownTimer(){
+  var hackedIsOver = new Date("2013-07-21 12:00:00");
+  $('.countdown time').countdown({until: hackedIsOver, onTick: formatCountdownTime});
+}
+
+function formatCountdownTime(periods) {
+  var days = doubleDigit(periods[3]);
+  var hours = doubleDigit(periods[4]);
+  var minutes = doubleDigit(periods[5]);
+  var seconds = doubleDigit(periods[6]);
+  $('.countdown time').text(days + ':' + hours + ':' + minutes + ':' + seconds);
+}
+
+function doubleDigit(n) {
+  return (n < 10) ? ("0" + n) : n;
 }

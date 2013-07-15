@@ -1,0 +1,33 @@
+<h1>Listing youtube_videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Videoid</th>
+      <th>Videourl</th>
+      <th>Authorname</th>
+      <th>Dateuploaded</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @youtube_videos.each do |youtube_video| %>
+      <tr>
+        <td><%= youtube_video.videoid %></td>
+        <td><%= youtube_video.videourl %></td>
+        <td><%= youtube_video.authorname %></td>
+        <td><%= youtube_video.dateuploaded %></td>
+        <td><%= link_to 'Show', youtube_video %></td>
+        <td><%= link_to 'Edit', edit_youtube_video_path(youtube_video) %></td>
+        <td><%= link_to 'Destroy', youtube_video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Youtube video', new_youtube_video_path %>
