@@ -6,9 +6,51 @@ $(function(){
   getAllFlickrPhotos();
   keepUpdatingTweetTimes();
   setCountdownTimer();
+  getStats();
+  displayNotification();
 });
 
 var current_latest_item;
+
+function displayNotification(){
+  var url = "/notifications.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(notifications){
+      var latest = notifications['info']['latest_notification'];
+      $(".temporary_notification_div").html('<p>'+notifications[latest]['text']+'</p>');
+      setTimeout(function(){
+        displayNotification();
+      },5000);
+    }
+  });
+}
+
+function getStats(){
+  var url = "/stats.json";
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: url,
+    success: function(stats){
+      displayStats(stats);
+      setTimeout(function(){
+        getStats();
+      }, 5000);
+    }
+  });
+}
+
+function displayStats(stats){
+  $('.stats').html("")
+  $.each(stats, function(index,stat){
+    if(stat['display']==true){
+      $('.stats').append('<p><span>'+stat['value']+'</span> '+stat['name']+'</p>');
+    };
+  });
+}
 
 function getAllTweets(){
   var url = "/tweets.json";

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712111607) do
+ActiveRecord::Schema.define(version: 20130715132109) do
 
   create_table "flickr_photos", force: true do |t|
     t.string   "ownername"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20130712111607) do
   create_table "new_items", force: true do |t|
     t.string   "itemtype"
     t.string   "itemid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stats", force: true do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.boolean  "display"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
