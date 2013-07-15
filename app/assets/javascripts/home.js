@@ -20,7 +20,7 @@ function displayNotification(){
     url: url,
     success: function(notifications){
       var latest = notifications['info']['latest_notification'];
-      $(".temporary_notification_div").html('<p>'+notifications[latest]['text']+'</p>');
+      $("#notification marquee").text(notifications[latest]['text']);
       setTimeout(function(){
         displayNotification();
       },5000);
