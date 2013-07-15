@@ -167,8 +167,8 @@ function appendPhoto(photo){
   $('#flickr_youtube').append(
     ' <article class="picture flickr"> \
         <figure> \
-          <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo" style="width:100%;height:100%;"> \
-          <figcaption style="font-size:10pt;">Uploaded by '+photo['ownername']+'</figcaption> \
+          <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo"> \
+          <figcaption>Uploaded by <span>'+photo['ownername']+'</span></figcaption> \
         </figure> \
       </article> '
   );
@@ -178,8 +178,8 @@ function appendVideo(video){
   console.log('appending youtube video');
   $('#flickr_youtube').append(
     ' <article class="video youtube"> \
-        <iframe width="100%" src="'+video['videourl'].replace("\u0026","&")+'"></iframe> \
-        <p style="font-size:10pt;">Uploaded by '+video['authorname']+'</p> \
+        <iframe src="'+video['videourl'].replace("\u0026","&")+'"></iframe> \
+        <p>Uploaded by <span>'+video['authorname']+'</span></p> \
       </article> '
   );
 }
