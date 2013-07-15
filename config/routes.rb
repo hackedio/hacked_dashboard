@@ -1,4 +1,6 @@
 HackedDashboard::Application.routes.draw do
+  resources :stats
+
   resources :youtube_videos
 
   resources :new_items
