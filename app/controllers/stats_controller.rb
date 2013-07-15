@@ -1,4 +1,5 @@
 class StatsController < ApplicationController
+  protect_from_forgery :except => :update
   before_action :set_stat, only: [:show, :edit, :update, :destroy]
 
   # GET /stats
@@ -40,13 +41,21 @@ class StatsController < ApplicationController
   # PATCH/PUT /stats/1
   # PATCH/PUT /stats/1.json
   def update
-    respond_to do |format|
-      if @stat.update(stat_params)
-        format.html { redirect_to @stat, notice: 'Stat was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @stat.errors, status: :unprocessable_entity }
+    if params[:increment] == "true"
+      stat = Stat.find(params[:id].to_i)
+      puts stat
+      puts "updating #{stat} with id: #{stat.id}"
+      stat.update_attributes(:value => stat.value+1)
+      render json: {"notice"=>"request received"}
+    else
+      respond_to do |format|
+        if @stat.update(stat_params)
+          format.html { redirect_to @stat, notice: 'Stat was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @stat.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
