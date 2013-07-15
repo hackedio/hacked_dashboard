@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  layout 'plain'
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
   # GET /tweets

@@ -73,7 +73,6 @@ function getAllFlickrPhotos(){
     dataType: "json",
     url: url,
     success: function(photos){
-      // processFlickr(photos);
       getAllYoutubeVids(photos);
     }
   });
@@ -187,7 +186,7 @@ function processTweets(tweets){
 }
 
 function appendTweet(tweet){
-  $('#tweets').append(
+  $('#tweets').prepend(
     ' <article class="text tweet"> \
         '+tweetTimeElement(tweet['tweeted_at'])+' \
         <img src=\"'+tweet['profile_image_url']+'\" /> \
@@ -198,15 +197,9 @@ function appendTweet(tweet){
   console.log('tweet appended');
 }
 
-// function processFlickr(photos){
-//   $.each(photos, function(index, photo){
-//     appendPhoto(photo);
-//   });
-// }
-
 function appendPhoto(photo){
   console.log('appending flickr photo');
-  $('#flickr_youtube').append(
+  $('#flickr_youtube').prepend(
     ' <article class="picture flickr"> \
         <figure> \
           <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo"> \
@@ -218,7 +211,7 @@ function appendPhoto(photo){
 
 function appendVideo(video){
   console.log('appending youtube video');
-  $('#flickr_youtube').append(
+  $('#flickr_youtube').prepend(
     ' <article class="video youtube"> \
         <iframe src="'+video['videourl'].replace("\u0026","&")+'"></iframe> \
         <p>Uploaded by <span>'+video['authorname']+'</span></p> \

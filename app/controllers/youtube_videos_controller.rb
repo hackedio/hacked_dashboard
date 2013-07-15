@@ -1,4 +1,5 @@
 class YoutubeVideosController < ApplicationController
+  layout 'plain'
   before_action :set_youtube_video, only: [:show, :edit, :update, :destroy]
 
   # GET /youtube_videos

@@ -1,4 +1,5 @@
 class FlickrPhotosController < ApplicationController
+  layout 'plain'
   before_action :set_flickr_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /flickr_photos

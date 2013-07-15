@@ -1,4 +1,5 @@
 class StatsController < ApplicationController
+  layout 'plain'
   protect_from_forgery :except => :update
   before_action :set_stat, only: [:show, :edit, :update, :destroy]
 

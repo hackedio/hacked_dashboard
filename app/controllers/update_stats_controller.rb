@@ -1,5 +1,5 @@
 class UpdateStatsController < ApplicationController
-  layout 'update_stats'
+  layout 'plain'
   
   def index
     @stats = Stat.all

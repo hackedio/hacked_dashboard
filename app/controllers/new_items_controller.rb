@@ -1,4 +1,5 @@
 class NewItemsController < ApplicationController
+  layout 'plain'
   before_action :set_new_item, only: [:show, :edit, :update, :destroy]
 
   # GET /new_items
