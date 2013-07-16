@@ -1,5 +1,5 @@
-<div id="buttons">
+<div id="buttons" style="width:100%;text-align:center;">
   <% @stats.each do |stat| %>
-    <button data-statid="<%= stat.id %>"><%= stat.name %> + 1</button> <br /><br />
+    <button style="width:80%;font-size:200%;margin:0 0% 5% 0%;padding:2%;border-radius:5px;" data-statid="<%= stat.id %>"><%= stat.name %> + 1</button>
   <% end %>
 </div>
