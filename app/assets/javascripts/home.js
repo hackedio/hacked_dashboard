@@ -129,6 +129,7 @@ function getLatestItem(){
     url: url,
     success: function(items){
       current_latest_item = items['info']['latest_item'];
+      console.log('latest new item is: '+current_latest_item);
       loopFindNewItems();
     }
   });
@@ -146,7 +147,7 @@ function loopFindNewItems(){
         var new_item = items[current_latest_item+1];
         if (new_item){
           current_latest_item = current_latest_item+1;
-          console.log('new item found!!!');
+          console.log('new item found with id:' + current_latest_item);
           updatePage(new_item);
         }else{
           console.log('no new items found');
@@ -186,11 +187,17 @@ function processTweets(tweets){
 }
 
 function appendTweet(tweet){
+  if(tweet['media_url']==null){
+    var tweeted_image = '';
+  }else{
+    var tweeted_image = '<img src=\"'+tweet['media_url']+'\" />';
+  };
   $('#tweets').prepend(
     ' <article class="text tweet"> \
         '+tweetTimeElement(tweet['tweeted_at'])+' \
-        <img src=\"'+tweet['profile_image_url']+'\" /> \
+        <img class="profile" src=\"'+tweet['profile_image_url']+'\" /> \
         <div><h5><b>'+tweet['name']+'</b> @'+tweet['screen_name']+'</h5> \
+        '+tweeted_image+' \
         <blockquote>'+tweet['tweet_text']+'</blockquote></div> \
       </article> '
   );
