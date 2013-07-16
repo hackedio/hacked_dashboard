@@ -44,7 +44,7 @@ function getStats(){
 }
 
 function displayStats(stats){
-  $('.stats').html("")
+  $('.stats').html("");
   $.each(stats, function(index,stat){
     if(stat['display']==true){
       $('.stats').append('<p><span>'+stat['value']+'</span> '+stat['name']+'</p>');
