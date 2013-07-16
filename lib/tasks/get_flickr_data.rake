@@ -29,7 +29,7 @@ def add_new_photo(group)
 end
 
 def find_new_photos_and_add_them_to_db
-  groups = flickr.groups.pools.getPhotos(:group_id => '48889102397@N01', :extras => 'url_z', :per_page => 50 )
+  groups = flickr.groups.pools.getPhotos(:group_id => '2216865@N25', :extras => 'url_z', :per_page => 50 )
 
   groups.each do |group|
     unless FlickrPhoto.find_by(photo_url: group.url_z)
