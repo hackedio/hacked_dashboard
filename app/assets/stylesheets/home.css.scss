@@ -47,7 +47,8 @@ $bigFont:$fontSize*3;
 $rightpanel:24%;
 $leftpanel:76%;
 $gutter:20px;
-$screenHeight:1024px;
+$screenWidth:1920px;
+$screenHeight:1080px;
 
 
 /*animations*/
@@ -85,13 +86,13 @@ header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-
 header, aside, footer {width:$rightpanel; color:$white;}
 //positioning
 aside, footer {position:absolute; right:0px;}
-aside {top:280px;}
+aside {top:390px;}
 footer {bottom:0px;}
 
 //styling
 header {
 	float:right;
-	img {width:50%; height:auto; display:block; margin:0px auto;}
+	img {width:92%; height:auto; display:block; margin:0px auto;}
 }
 aside {
 	font-family:'unicod_sansmedium';
@@ -118,7 +119,7 @@ footer {
 
 /*notification*/
 #notification {
-	padding:$gutter;
+	padding:$gutter/2;
 	box-sizing:border-box;
 	background:$pink;
 	marquee {
@@ -129,7 +130,7 @@ footer {
 }
 
 section[role="main"] {
-	width:$leftpanel; height:1024px;
+	width:$leftpanel; height:$screenHeight;
 	padding:0px;
 	overflow:hidden;
 	float:left;
@@ -185,7 +186,7 @@ section[role="main"] {
 
 #flickr_youtube {
 	overflow:hidden;
-	height:$screenHeight !important;
+	height:$screenHeight;
 	background-image:
 		-webkit-linear-gradient(left, transparent 3px, hsla(280,100%,100%,1) 4px),
 		-webkit-linear-gradient(top, hsla(230,100%,100%,0), hsla(230,100%,50%,0.5), hsla(230,100%,100%,0))
