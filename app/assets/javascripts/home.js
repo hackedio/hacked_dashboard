@@ -192,12 +192,23 @@ function appendTweet(tweet){
   }else{
     var tweeted_image = '<div style="width:100%;text-align:center;"><img style="width:30%;height:30%;" src=\"'+tweet['media_url']+'\" /></div>';
   };
+
+  // find hashtags and URLs and color them
+  var tweet_text = tweet['tweet_text'].split(' ');
+
+  for(i=0;i<tweet_text.length;i++){
+    word = tweet_text[i];
+    if(word.match(/(^http|^\#)/)){
+      tweet_text[i] = '<span style="color:red;">'+word+'</span>'
+    };
+  };
+
   $('#tweets').prepend(
     ' <article class="text tweet"> \
         '+tweetTimeElement(tweet['tweeted_at'])+' \
         <img class="profile" src=\"'+tweet['profile_image_url']+'\" /> \
         <div><h5><b>'+tweet['name']+'</b> @'+tweet['screen_name']+'</h5> \
-        <blockquote>'+tweet['tweet_text']+'</blockquote></div> \
+        <blockquote>'+tweet_text.join(' ')+'</blockquote></div> \
         '+tweeted_image+' \
       </article> '
   );
