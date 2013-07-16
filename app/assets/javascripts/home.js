@@ -190,15 +190,15 @@ function appendTweet(tweet){
   if(tweet['media_url']==null){
     var tweeted_image = '';
   }else{
-    var tweeted_image = '<img src=\"'+tweet['media_url']+'\" />';
+    var tweeted_image = '<div style="width:100%;text-align:center;"><img style="width:30%;height:30%;" src=\"'+tweet['media_url']+'\" /></div>';
   };
   $('#tweets').prepend(
     ' <article class="text tweet"> \
         '+tweetTimeElement(tweet['tweeted_at'])+' \
         <img class="profile" src=\"'+tweet['profile_image_url']+'\" /> \
         <div><h5><b>'+tweet['name']+'</b> @'+tweet['screen_name']+'</h5> \
-        '+tweeted_image+' \
         <blockquote>'+tweet['tweet_text']+'</blockquote></div> \
+        '+tweeted_image+' \
       </article> '
   );
   console.log('tweet appended');
