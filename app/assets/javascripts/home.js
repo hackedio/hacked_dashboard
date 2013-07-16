@@ -200,7 +200,7 @@ function appendTweet(tweet){
 function appendPhoto(photo){
   console.log('appending flickr photo');
   $('#flickr_youtube').prepend(
-    ' <article class="picture flickr"> \
+    ' <article class="media flickr"> \
         <figure> \
           <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo"> \
           <figcaption>Uploaded by <span>'+photo['ownername']+'</span></figcaption> \
@@ -212,7 +212,7 @@ function appendPhoto(photo){
 function appendVideo(video){
   console.log('appending youtube video');
   $('#flickr_youtube').prepend(
-    ' <article class="video youtube"> \
+    ' <article class="media youtube"> \
         <iframe src="'+video['videourl'].replace("\u0026","&")+'"></iframe> \
         <p>Uploaded by <span>'+video['authorname']+'</span></p> \
       </article> '
@@ -321,3 +321,6 @@ function formatCountdownTime(periods) {
 function doubleDigit(n) {
   return (n < 10) ? ("0" + n) : n;
 }
+
+
+
