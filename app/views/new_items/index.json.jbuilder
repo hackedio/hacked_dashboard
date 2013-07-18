@@ -5,6 +5,6 @@
   end
 end
 json.set! :info do
-  json.set! :latest_item, @new_items.last.id
-  json.set! :first_item, @new_items.first.id
+  json.set! :latest_item, @new_items.pluck(:id).max
+  json.set! :first_item, @new_items.pluck(:id).min
 end
