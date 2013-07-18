@@ -25,9 +25,9 @@ def find_new_tweets_and_add_them_to_db
   latest_tweet = Tweet.pluck(:tweetid).map { |id| id.to_i }.max
 
   if latest_tweet.nil?
-    tweets = Twitter.search("#hackedio", :include_entities => true)
+    tweets = Twitter.search("#hackedio OR #hackedfacts", :include_entities => true)
   else
-    tweets = Twitter.search("#hackedio", :include_entities => true, :since_id => latest_tweet)
+    tweets = Twitter.search("#hackedio OR #hackedfacts", :include_entities => true, :since_id => latest_tweet)
   end
 
   tweets.statuses.each do |t|
