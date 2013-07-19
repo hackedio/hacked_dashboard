@@ -325,20 +325,26 @@ function addNewVideoToPage(videoid){
 
 function setCountdownTimer(){
   var hackedIsOver = new Date("2013-07-21 12:00:00");
-  $('.countdown time').countdown({until: hackedIsOver, compact: true, format: 'HMS', description: ''});
+  // $('.countdown time').countdown({until: hackedIsOver, compact: true, format: 'HMS', description: ''});
+  $('.countdown time').countdown({until: hackedIsOver, onTick: formatCountdownTime});
 }
 
-// function formatCountdownTime(periods) {
-//   var days = doubleDigit(periods[3]);
-//   var hours = doubleDigit(periods[4]);
-//   var minutes = doubleDigit(periods[5]);
-//   var seconds = doubleDigit(periods[6]);
-//   $('.countdown time').text(days + ':' + hours + ':' + minutes + ':' + seconds);
-// }
+function formatCountdownTime(periods) {
+  var days = doubleDigit(periods[3]);
+  var hours = doubleDigit(periods[4]);
+  var minutes = doubleDigit(periods[5]);
+  var seconds = doubleDigit(periods[6]);
 
-// function doubleDigit(n) {
-//   return (n < 10) ? ("0" + n) : n;
-// }
+  if(days > 0){
+    $('.countdown time').text("24:00:00");
+  }else{
+    $('.countdown time').text(hours + ':' + minutes + ':' + seconds);
+  };
+}
+
+function doubleDigit(n) {
+  return (n < 10) ? ("0" + n) : n;
+}
 
 
 
