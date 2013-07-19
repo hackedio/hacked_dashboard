@@ -102,15 +102,18 @@ header {
 aside {
 	font-family:'unicod_sansmedium';
 	div {
-		padding-bottom:$gutter;
+//		padding-bottom:$gutter;
 	}
-	.countdown time {
-		display:block;
-		font-size:$bigFont*1.5; text-align:center;
+	.countdown {
+		padding-bottom:$gutter/1.5;
+		time {
+			display:block;
+			font-size:$bigFont*1.5; text-align:center;
+		}
 	}
 	.stats {
 		p {
-			margin-bottom:$gutter;
+			margin-bottom:$gutter/2;
 			font-size:$fontSize;
 			span {
 				font-size:$bigFont;
@@ -119,6 +122,7 @@ aside {
 	}
 }
 footer {
+	padding:$gutter/2 $gutter;
 	a {color:$purple;}
 }
 
@@ -157,7 +161,7 @@ section[role="main"] {
 		&:nth-of-type(2) {float:right;}
 		article {
 			overflow:hidden;
-			padding:$gutter;
+			padding:$gutter $gutter/2;
 			-webkit-animation:fadeIn 1s linear;
 			font-size:$fontSize;
 		}
@@ -181,7 +185,10 @@ section[role="main"] {
 					0px 0px 0px 5px transparentize($purple,0.5)
 				;
 			}
-			div {margin-right:$twitterImgSize+$gutter;}
+			div {
+				margin-right:$twitterImgSize+$gutter;
+				img {margin-top:$gutter/2}
+			}
 			h5, blockquote {font-size:$fontSize;}
 			h5 {
 				margin:-4px 0px 4px;
