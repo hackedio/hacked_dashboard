@@ -6,12 +6,12 @@ namespace :get do
       loop do
         puts "#{Time.now} : finding tweets in env: #{Rails.env}"
         find_new_tweets_and_add_them_to_db
-        puts "Process complete. Sleeping for 30 seconds."
+        puts "Process complete. Sleeping for 60 seconds."
         sleep 60
       end
     rescue => e
       puts "#{Time.now} : something went bad, infact this did: #{e}"
-      puts "#{Time.now} : Now going to retry in 30 seconds"
+      puts "#{Time.now} : Now going to retry in 60 seconds"
       sleep 60
       retry
     end
