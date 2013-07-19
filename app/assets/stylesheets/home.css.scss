@@ -179,7 +179,10 @@ section[role="main"] {
 				color:$purple;
 				b {color:$black;}
 			}
-			blockquote {font-family:'helvetica' sans-serif;}
+			blockquote {
+				font-family:'helvetica' sans-serif;
+				.highlighted {color:$pink;}
+			}
 		}
 	}
 }
