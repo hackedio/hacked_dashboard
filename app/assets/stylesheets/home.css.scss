@@ -175,11 +175,11 @@ section[role="main"] {
 				float:right; display:block;
 				width:$twitterImgSize; height:auto;
 				border:1px solid $black;
-//				box-shadow:
-//					0px 0px 1px 0px $black,
-//					0px 0px 0px 3px $white,
-//					0px 0px 0px 5px transparentize($purple,0.5)
-//				;
+				box-shadow:
+					0px 0px 1px 0px $black,
+					0px 0px 0px 3px $white,
+					0px 0px 0px 5px transparentize($purple,0.5)
+				;
 			}
 			div {margin-right:$twitterImgSize+$gutter;}
 			h5, blockquote {font-size:$fontSize;}
@@ -214,21 +214,20 @@ section[role="main"] {
 			width:100%; height:auto;
 			box-sizing:border-box;
 			border:1px solid $black;
-//			box-shadow:
-//				0px 0px 1px 0px $black,
-//				0px 0px 0px 3px $white,
-//				0px 0px 0px 5px transparentize($blue,0.5)
-//			;
+			box-shadow:
+				0px 0px 1px 0px $black,
+				0px 0px 0px 3px $white,
+				0px 0px 0px 5px transparentize($purple,0.5)
+			;
 		}
 		figcaption, p {
 			padding-top:$gutter/2;
-			font-size:$smallFont;
+			font-size:$fontSize;
+			font-family:'unicod_sansmedium';
 			span {color:$blue;}
 		}
 	}
 }
-
-
 
 
 
