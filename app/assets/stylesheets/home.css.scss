@@ -91,22 +91,22 @@ header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-
 header, aside, footer {width:$rightpanel; color:$white;}
 //positioning
 aside, footer {position:absolute; right:0px;}
-aside {top:340px;}
+aside {top:330px;}
 footer {bottom:0px;}
 
 //styling
 header {
 	float:right;
-	img {width:92%; height:auto; display:block; margin:0px auto;}
+	img {width:90%; height:auto; display:block; margin:0px auto;}
 }
 aside {
 	font-family:'unicod_sansmedium';
 	div {
-		padding-bottom:$gutter*2;
+		padding-bottom:$gutter;
 	}
 	.countdown time {
 		display:block;
-		font-size:$bigFont*1.2; text-align:center;
+		font-size:$bigFont*1.5; text-align:center;
 	}
 	.stats {
 		p {
@@ -221,7 +221,7 @@ section[role="main"] {
 			;
 		}
 		figcaption, p {
-			padding-top:$gutter/2;
+			padding-top:$gutter/4;
 			font-size:$fontSize;
 			font-family:'unicod_sansmedium';
 			span {color:$blue;}
