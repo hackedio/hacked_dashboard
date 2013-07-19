@@ -174,9 +174,9 @@ function updateTweetTime(time, tweetedat){
   var minutes = howLongAgo.getMinutes();
 
   if(hours == 0){
-    $(time).html(minutes+'m ago');
+    $(time).html(minutes+'m');
   }else{
-    $(time).html(hours+'h '+minutes+'m ago');
+    $(time).html(hours+'h '+minutes+'m');
   };
 }
 
@@ -249,9 +249,9 @@ function tweetTimeElement(tweeted_at){
   var hours = howLongAgo.getHours();
   var minutes = howLongAgo.getMinutes();
   if(hours == 0){
-    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+minutes+'m'+' ago</time>';
+    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+minutes+'m'+'</time>';
   }else{
-    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+hours+'h '+minutes+'m'+' ago</time>';
+    return '<time data-tweetedat=\"'+tweeted_at+'\" class=\"tweeted_at\">'+hours+'h '+minutes+'m'+'</time>';
   };
 }
 
@@ -325,20 +325,20 @@ function addNewVideoToPage(videoid){
 
 function setCountdownTimer(){
   var hackedIsOver = new Date("2013-07-21 12:00:00");
-  $('.countdown time').countdown({until: hackedIsOver, onTick: formatCountdownTime});
+  $('.countdown time').countdown({until: hackedIsOver, compact: true, format: 'HMS', description: ''});
 }
 
-function formatCountdownTime(periods) {
-  var days = doubleDigit(periods[3]);
-  var hours = doubleDigit(periods[4]);
-  var minutes = doubleDigit(periods[5]);
-  var seconds = doubleDigit(periods[6]);
-  $('.countdown time').text(days + ':' + hours + ':' + minutes + ':' + seconds);
-}
+// function formatCountdownTime(periods) {
+//   var days = doubleDigit(periods[3]);
+//   var hours = doubleDigit(periods[4]);
+//   var minutes = doubleDigit(periods[5]);
+//   var seconds = doubleDigit(periods[6]);
+//   $('.countdown time').text(days + ':' + hours + ':' + minutes + ':' + seconds);
+// }
 
-function doubleDigit(n) {
-  return (n < 10) ? ("0" + n) : n;
-}
+// function doubleDigit(n) {
+//   return (n < 10) ? ("0" + n) : n;
+// }
 
 
 
