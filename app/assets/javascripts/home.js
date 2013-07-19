@@ -221,7 +221,7 @@ function appendPhoto(photo){
     ' <article class="media flickr"> \
         <figure> \
           <img src="'+photo['photo_url']+'" alt="'+photo['ownername']+'\'s photo"> \
-          <figcaption>Uploaded by <span>'+photo['ownername']+'</span></figcaption> \
+          <figcaption><span>'+photo['ownername']+'</span></figcaption> \
         </figure> \
       </article> '
   );
@@ -232,7 +232,7 @@ function appendVideo(video){
   $('#flickr_youtube').prepend(
     ' <article class="media youtube"> \
         <iframe src="'+video['videourl'].replace("\u0026","&")+'"></iframe> \
-        <p>Uploaded by <span>'+video['authorname']+'</span></p> \
+        <p><span>'+video['authorname']+'</span></p> \
       </article> '
   );
 }
