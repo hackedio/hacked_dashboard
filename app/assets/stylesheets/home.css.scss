@@ -1,4 +1,5 @@
 //VARIABLE MIXIN ANIMATION DECLARATIONS
+//1366x768
 /*colours*/
 $blue:#2e3192;
 $pink:#ee145b;
@@ -41,14 +42,14 @@ $black:darken($blue,20%);
 }
 $fontSize:1em;
 $smallFont:$fontSize*0.8;
-$bigFont:$fontSize*3;
+$bigFont:$fontSize*2.2;
 
 /*grid*/
 $rightpanel:24%;
 $leftpanel:76%;
 $gutter:20px;
-$screenWidth:1920px;
-$screenHeight:1080px;
+$screenWidth:1280px;
+$screenHeight:768px;
 
 
 /*animations*/
@@ -61,6 +62,10 @@ $screenHeight:1080px;
 	19% {opacity:0;}
 	20% {opacity:1;}
 	100% {opacity:1;}
+}
+@-webkit-keyframes marquee {
+	0% {left:1000px}
+	100% {left:-1500px}
 }
 
 $twitterImgSize:80px;
@@ -86,7 +91,7 @@ header, section[role="main"], aside, footer {padding:$gutter; box-sizing:border-
 header, aside, footer {width:$rightpanel; color:$white;}
 //positioning
 aside, footer {position:absolute; right:0px;}
-aside {top:440px;}
+aside {top:340px;}
 footer {bottom:0px;}
 
 //styling
@@ -122,10 +127,14 @@ footer {
 	padding:$gutter/2;
 	box-sizing:border-box;
 	background:$pink;
-	marquee {
+	position:relative;
+	marquee, p {
+//		position:absolute; top:10px; left:-1000px;
 		font-size:$bigFont;
 		color:white;
+		white-space:nowrap;
 		-webkit-animation:blink 2s infinite;
+//		-webkit-animation:marquee 20s infinite;
 	}
 }
 
@@ -160,23 +169,23 @@ section[role="main"] {
 			time {
 				float:left;
 				font-size:$smallFont; /*font-family:'helvetica' sans-serif;*/
-				color:$purple;
+				color:$blue;
 			}
 			img.profile {
 				float:right; display:block;
 				width:$twitterImgSize; height:auto;
 				border:1px solid $black;
-				box-shadow:
-					0px 0px 1px 0px $black,
-					0px 0px 0px 3px $white,
-					0px 0px 0px 5px transparentize($purple,0.5)
-				;
+//				box-shadow:
+//					0px 0px 1px 0px $black,
+//					0px 0px 0px 3px $white,
+//					0px 0px 0px 5px transparentize($purple,0.5)
+//				;
 			}
 			div {margin-right:$twitterImgSize+$gutter;}
 			h5, blockquote {font-size:$fontSize;}
 			h5 {
 				margin:-4px 0px 4px;
-				color:$purple;
+				color:$blue;
 				b {color:$black;}
 			}
 			blockquote {
@@ -194,10 +203,10 @@ section[role="main"] {
 		-webkit-linear-gradient(left, transparent 3px, hsla(280,100%,100%,1) 4px),
 		-webkit-linear-gradient(top, hsla(230,100%,100%,0), hsla(230,100%,50%,0.5), hsla(230,100%,100%,0))
 	;
-	-webkit-column-count: 3;
-    column-count: 3;
+	-webkit-column-count: 2;
+    column-count: 2;
 	article {
-		padding:$gutter;
+		padding:$gutter/2;
 		float:left;
 		box-sizing:border-box;
 		img, iframe {
@@ -205,11 +214,11 @@ section[role="main"] {
 			width:100%; height:auto;
 			box-sizing:border-box;
 			border:1px solid $black;
-			box-shadow:
-				0px 0px 1px 0px $black,
-				0px 0px 0px 3px $white,
-				0px 0px 0px 5px transparentize($blue,0.5)
-			;
+//			box-shadow:
+//				0px 0px 1px 0px $black,
+//				0px 0px 0px 3px $white,
+//				0px 0px 0px 5px transparentize($blue,0.5)
+//			;
 		}
 		figcaption, p {
 			padding-top:$gutter/2;
