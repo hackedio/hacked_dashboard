@@ -8,33 +8,33 @@ $black:darken($blue,20%);
 /*fonts*/
 @font-face {
     font-family: 'unicod_sansregular';
-    src: url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.eot');
-    src: url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.woff') format('woff'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.ttf') format('truetype'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.svg#unicod_sansregular') format('svg');
+    src: font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.eot');
+    src: font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.woff') format('woff'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.ttf') format('truetype'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod-webfont.svg#unicod_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'unicod_sansmedium';
-    src: url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.eot');
-    src: url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.woff') format('woff'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.ttf') format('truetype'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.svg#unicod_sansmedium') format('svg');
+    src: font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.eot');
+    src: font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.woff') format('woff'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.ttf') format('truetype'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_medium-webfont.svg#unicod_sansmedium') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'unicod_sansbold';
-    src: url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.eot');
-    src: url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.woff') format('woff'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.ttf') format('truetype'),
-         url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.svg#unicod_sansbold') format('svg');
+    src: font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.eot');
+    src: font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.woff') format('woff'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.ttf') format('truetype'),
+         font-url('https://s3-eu-west-1.amazonaws.com/hackedio-dashboard/fonts/unicod_bold-webfont.svg#unicod_sansbold') format('svg');
     font-weight: normal;
     font-style: normal;
 
