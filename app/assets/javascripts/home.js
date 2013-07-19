@@ -199,7 +199,7 @@ function appendTweet(tweet){
   for(i=0;i<tweet_text.length;i++){
     word = tweet_text[i];
     if(word.match(/(^http|^\#)/)){
-      tweet_text[i] = '<span style="color:$pink;">'+word+'</span>'
+      tweet_text[i] = '<span class="highlighted">'+word+'</span>'
     };
   };
 
