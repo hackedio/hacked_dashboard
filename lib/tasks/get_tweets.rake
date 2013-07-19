@@ -7,12 +7,12 @@ namespace :get do
         puts "#{Time.now} : finding tweets in env: #{Rails.env}"
         find_new_tweets_and_add_them_to_db
         puts "Process complete. Sleeping for 30 seconds."
-        sleep 30
+        sleep 60
       end
     rescue => e
       puts "#{Time.now} : something went bad, infact this did: #{e}"
       puts "#{Time.now} : Now going to retry in 30 seconds"
-      sleep 30
+      sleep 60
       retry
     end
 
