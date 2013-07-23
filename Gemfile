@@ -16,6 +16,7 @@ gem 'flickraw'
 gem 'youtube_it'
 gem 'foreman'
 gem 'httparty'
+gem 'aws-sdk'
 
 # Rails 4 requires this gem in order to configure your application logs
 # to be visible via heroku logs and to serve static assets
