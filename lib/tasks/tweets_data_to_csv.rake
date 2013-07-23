@@ -2,7 +2,7 @@ require 'csv'
 require 'aws-sdk'
 
 namespace :tweets do
-  desc "Use twitter API to grab relevent tweets and add them to database"
+  desc "get all tweets in DB, convert them to CSV format, send them to S3 bucket"
   task :csv => :environment do
 
     obj = bucket.objects['tweets.csv']
